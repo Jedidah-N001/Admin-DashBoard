@@ -188,3 +188,10 @@ aside .sidebar .message-count{
     font-size: 11px;
     border-radius: var(--border-radius-1);
 }
+main{
+    margin-top: 1.4rem;
+}
+main .date{
+    display: inline-block;
+    color: ;
+}
