@@ -26,7 +26,15 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 
 }
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #93bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow:0 2rem 3rem var(--color-light);
 
+}
 *{
     margin: 0;
     padding: 0;
@@ -443,47 +451,80 @@ main .recent-orders a{
 }
 
 /* media queries (for tablets) */ 
-@media screen and (max-width:1200px){
-    .container{
-        width: 94%;
-        grid-template-columns: 7rem auto 23rem;
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 96%;
+        grid-template-columns: 6rem auto 22rem;
+        gap: 1rem; /* Add some spacing between columns */
     }
-    aside .logo h2{
-        display: none;
-    }
-    aside .sidebar h3{
-        display: none;
-    }
-    aside .sidebar a{
-        width: 5.6rem;
-    }
-    aside .sidebar a:last-child{
-        position: relative;
-        margin-top: 1.8rem;
-    }
-    main .insights{
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    main .recent-orders{
-        width: 94%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 8.8rem;
-    }
-    main .recent-orders table{
-        width: 83vw;
-    }
-    main table thead tr th:last-child,
-    main table thead tr th:last-child{
-        display: none;
-    }
-    main table tbody tr td:last-child,
-    main table tbody tr td:last-child{
+
+    /* Sidebar adjustments */
+    aside .logo h2 {
         display: none;
     }
 
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5rem;
+        padding: 0.8rem 0.5rem; /* Add padding for better touch interaction */
+        font-size: 0.9rem; /* Slightly reduce font size */
+    }
+
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 2rem;
+    }
+
+    /* Insights section adjustments */
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 1rem; /* Add spacing between insight items */
+    }
+
+    /* Recent orders adjustments */
+    main .recent-orders {
+        width: 96%;
+        position: relative;
+        margin: 2rem 0 0 7rem;
+        transform: none; /* Remove transform for better alignment */
+    }
+
+    main .recent-orders table {
+        width: 100%; /* Make the table fill the container width */
+        margin: 0 auto; /* Center the table within its container */
+        font-size: 0.9rem; /* Slightly reduce font size for better readability */
+    }
+
+    /* Table adjustments */
+    main table thead tr th:last-child,
+    main table thead tr th:last-child {
+        display: none;
+    }
+
+    main table tbody tr td:last-child,
+    main table tbody tr td:last-child {
+        display: none;
+    }
+
+    /* Additional enhancements */
+    main {
+        padding: 1rem; /* Add padding to main content area */
+    }
+
+    /* Add hover effect for better interactivity */
+    aside .sidebar a:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Adjust headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2rem; /* Scale down headings */
+        line-height: 1.4;
+    }
 }
 
 /* media queries (for phones) */
@@ -494,7 +535,7 @@ main .recent-orders a{
     }
     aside{
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-white);
         width: 18rem;
         z-index: 3;
@@ -502,6 +543,12 @@ main .recent-orders a{
         height: 100vh;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
     }
     aside .logo{
         margin-left: 1rem;
